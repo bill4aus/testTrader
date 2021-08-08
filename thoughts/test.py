@@ -5,7 +5,7 @@ import datetime  # For datetime objects
 import backtrader as bt
 import pandas as pd
 import inspect
-from ...basemodel import BaseStrategy
+from .basemodel import BaseStrategy
 
 # 以上保持不变
 

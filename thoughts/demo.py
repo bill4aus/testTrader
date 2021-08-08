@@ -1,11 +1,7 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
-import datetime  # For datetime objects
-# Import the backtrader platform
 import backtrader as bt
-import pandas as pd
-import inspect
-from ...basemodel import BaseStrategy
+from .basemodel import BaseStrategy
 
 # 以上保持不变
 
@@ -51,7 +47,7 @@ class DemoStrategy(BaseStrategy):
                     p3 = p1 + self.p.p_takeprofit * close
                     self.log('决定买入 {} , 当前价:{},挂单价:{},止损价:{}止盈价:{}'.format(d._name,round(d.close[0],2),p1,p2,p3))
 
-                    os = self.buy_bracket(data=d,size=2000, price=p1,exectype=bt.Order.Limit,
+                    os = self.buy_bracket(data=d,price=p1,exectype=bt.Order.Limit,
                             limitprice=p3,
                             stopprice=p2)
                     self.orefs = [o.ref for o in os]
